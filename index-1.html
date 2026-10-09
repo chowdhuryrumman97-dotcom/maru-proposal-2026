@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ff7195">
+<title>A Little Question 💗</title>
+<style>
+:root{--pink:#ff579b;--coral:#ff786f;--orange:#ffb13f;--ink:#8d245a}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Arial,Helvetica,sans-serif;color:white;background:linear-gradient(145deg,#ff5b98 0%,#ff8a79 48%,#ffb342 100%);padding:24px 14px 40px;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 12% 18%,#fff5 0 2px,transparent 3px),radial-gradient(circle at 86% 34%,#fff5 0 2px,transparent 3px),radial-gradient(circle at 24% 82%,#fff4 0 3px,transparent 4px);background-size:95px 105px}
+.wrap{max-width:680px;margin:auto;text-align:center;position:relative}
+.pill{display:inline-block;padding:12px 23px;border:1px solid #ffffff66;border-radius:99px;background:#ffffff20;font-weight:700;letter-spacing:.3px}
+h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(36px,8vw,56px);line-height:1.03;margin:25px 0 12px;text-shadow:0 2px 2px #9b345322}
+.sub{font-size:clamp(16px,4vw,22px);line-height:1.5;margin:0 auto 30px;max-width:520px;color:#fff9}
+.card{border:1px solid #ffffff38;border-radius:34px;padding:30px 22px 24px;background:linear-gradient(155deg,#ff5ca4d9,#ff8d78e8 52%,#ffad43e8);box-shadow:0 24px 55px #8e21422b;overflow:hidden;position:relative}
+.from{font-size:18px;color:#fffde9;margin:2px 0 20px}
+h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(37px,8vw,56px);line-height:1.02;margin:0 0 14px}
+.name{font-size:clamp(23px,5vw,30px);font-weight:800;margin-bottom:26px}
+.message{font-size:clamp(16px,3.8vw,20px);line-height:1.8;color:#fffdf5;margin:0 auto 30px;max-width:540px}
+.game{border:1px solid #ffffff55;border-radius:28px;background:#ffffff17;padding:22px 14px 25px;min-height:178px}
+.hint{font-size:16px;line-height:1.5;color:#fff9;margin:0 0 18px}
+.buttons{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px;min-height:80px}
+button{font:inherit;cursor:pointer;border:0;transition:transform .2s,box-shadow .2s}
+.yes{background:#fff4fb;color:#c52f70;border-radius:100px;padding:20px 42px;font-size:clamp(23px,5vw,32px);font-weight:800;min-width:min(300px,90%);box-shadow:0 8px 24px #9c24502b}
+.yes:hover{transform:translateY(-2px) scale(1.02)}
+.no{background:#ffffff16;border:2px solid #ffffff8a;color:white;border-radius:100px;padding:13px 24px;font-weight:700}
+.edit{display:block;width:100%;margin:24px auto 0;padding:18px;border:1px solid #ffffff5c;border-radius:100px;background:#ffffff12;color:white;font-weight:700}
+.hearts{font-size:24px;letter-spacing:10px;opacity:.8;margin-top:22px;animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-7px)}}
+.modal{display:none;position:fixed;inset:0;background:#38132699;z-index:10;align-items:center;justify-content:center;padding:18px}
+.modal.open{display:flex}
+.panel{width:min(480px,100%);background:#fff8fc;color:#54233d;border-radius:24px;padding:24px;box-shadow:0 20px 60px #35102055}
+.panel h3{margin:0 0 16px;font-size:24px}
+label{display:block;font-size:14px;font-weight:700;margin:12px 0 6px}
+input,textarea{width:100%;border:1px solid #e8b7cd;border-radius:12px;padding:12px;font:inherit;color:#54233d;background:white}
+textarea{min-height:100px;resize:vertical}
+.actions{display:flex;gap:10px;margin-top:18px}
+.actions button{flex:1;padding:13px;border-radius:12px;font-weight:700}
+.save{background:#ec4f91;color:white}.cancel{background:#f7dce9;color:#783b59}
+.celebrate{display:none;position:fixed;inset:0;z-index:20;background:#ff6796f2;align-items:center;justify-content:center;text-align:center;padding:25px}
+.celebrate.show{display:flex}
+.celebrate h2{font-size:clamp(42px,10vw,68px)}
+.celebrate p{font-size:22px;line-height:1.5}
+.celebrate button{background:white;color:#c52f70;border-radius:99px;padding:14px 28px;font-weight:700}
+@media(min-width:600px){body{padding-top:35px}.card{padding:36px 30px 28px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="pill">💕 A LITTLE SURPRISE</div>
+  <h1>I've got a question...</h1>
+  <p class="sub">Something from my heart, just for you. 💗</p>
+  <section class="card">
+    <p class="from" id="fromText">From: Rumman ❤️</p>
+    <h2 id="questionText">Will You Be<br>My Girlfriend?</h2>
+    <div class="name" id="nameText">Maru 💝</div>
+    <p class="message" id="messageText">Every time I'm with you, I forget to check my phone — that's how I know it's real. Every inside joke, every random 2am conversation, every silly memory — I want more of those with you. And that's why I have to ask: will you be my girlfriend?</p>
+    <div class="game">
+      <p class="hint">Psst... there's only one answer I’m hoping for 😉</p>
+      <div class="buttons">
+        <button class="no" id="noBtn">No 🙃</button>
+        <button class="yes" id="yesBtn">Yes ❤️</button>
+      </div>
+    </div>
+    <div class="hearts">💗 💖 💕 💘 💗</div>
+  </section>
+  <button class="edit" id="editBtn">✎ Edit details</button>
+</main>
+
+<div class="modal" id="modal">
+  <form class="panel" id="editForm">
+    <h3>Personalize your page 💌</h3>
+    <label for="fromInput">Your name</label><input id="fromInput" value="Rumman" maxlength="40">
+    <label for="nameInput">Their name / nickname</label><input id="nameInput" value="Maru 💝" maxlength="40">
+    <label for="questionInput">Main question</label><input id="questionInput" value="Will You Be My Girlfriend?" maxlength="90">
+    <label for="messageInput">Your message</label><textarea id="messageInput">Every time I'm with you, I forget to check my phone — that's how I know it's real. Every inside joke, every random 2am conversation, every silly memory — I want more of those with you. And that's why I have to ask: will you be my girlfriend?</textarea>
+    <div class="actions"><button type="button" class="cancel" id="cancelBtn">Cancel</button><button class="save" type="submit">Save changes</button></div>
+  </form>
+</div>
+
+<div class="celebrate" id="celebrate">
+  <div><div style="font-size:64px">💖🥹💐</div><h2>YAY! ❤️</h2><p id="celebrateText">You just made Rumman the happiest person!</p><p>Here’s to more memories together. ✨</p><button id="backBtn">Go back 💗</button></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+$('editBtn').addEventListener('click',()=>{$('modal').classList.add('open')});
+$('cancelBtn').addEventListener('click',()=> $('modal').classList.remove('open'));
+$('editForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ const from=$('fromInput').value.trim()||'Someone';
+ const name=$('nameInput').value.trim()||'You';
+ const question=$('questionInput').value.trim()||'Will You Be My Girlfriend?';
+ $('fromText').textContent='From: '+from+' ❤️';
+ $('nameText').textContent=name;
+ $('questionText').textContent=question;
+ $('messageText').textContent=$('messageInput').value.trim();
+ $('celebrateText').textContent='You just made '+from+' the happiest person!';
+ $('modal').classList.remove('open');
+});
+$('yesBtn').addEventListener('click',()=> $('celebrate').classList.add('show'));
+$('backBtn').addEventListener('click',()=> $('celebrate').classList.remove('show'));
+let noCount=0;
+$('noBtn').addEventListener('click',()=>{
+ noCount++;
+ const btn=$('noBtn');
+ const lines=['Are you sure? 🥺','Think again? 💗','One more chance? 🥹','Pretty please? 💖'];
+ btn.textContent=lines[Math.min(noCount-1,lines.length-1)];
+ const yes=$('yesBtn');
+ yes.style.transform='scale('+(1+Math.min(noCount,6)*.09)+')';
+ if(noCount>=4){btn.textContent='Okay… 😅';}
+});
+</script>
+</body>
+</html>
